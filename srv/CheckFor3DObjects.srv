@@ -1,0 +1,5 @@
+int16 id
+sensor_msgs/PointCloud2 pc2
+---
+int16 id
+jsk_recognition_msgs/BoundingBoxArray bounding_boxes
