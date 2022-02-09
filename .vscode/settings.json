@@ -1,0 +1,11 @@
+{
+    "python.analysis.extraPaths": [
+        "./OpenPCDet/tools"
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "79",
+        "--experimental"
+    ],
+    "python.linting.enabled": true,
+}
