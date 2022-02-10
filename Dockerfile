@@ -1,10 +1,10 @@
-FROM nvidia/cuda:11.5.0-devel-ubuntu18.04
+FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 
 CMD ["bash"]
 
 # ENVIRONMENT STUFF FOR CUDA
 
-RUN ls /usr/local/cuda/bin
+
 ENV LD_LIBRARAY_PATH /usr/local/cuda/lib64:$LD_LIBRARAY_PATH
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/lib64
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/lib
@@ -75,7 +75,8 @@ RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"
   rosdep update
 
 # install catkin tools
-RUN apt-get install -y python-empy 
+RUN apt-get install -y python-empy && apt-get install ros-melodic-jsk-recognition-msgs -y && \
+    apt-get install ros-melodic-jsk-rviz-plugins -y
 RUN pip install -U pip catkin-tools trollius
 
 # clean the cache
@@ -93,3 +94,11 @@ RUN echo 'source /opt/ros/melodic/setup.bash' >> $HOME/.bashrc && \
   echo 'export PYTHONPATH=/usr/local/lib/python3.5/dist-packages/cv2/:$PYTHONPATH' >> $HOME/.bashrc && \
   echo 'export NO_AT_BRIDGE=1' >> $HOME/.bashrc
 
+RUN cd $HOME/3d_object_detection/openpcd_ros && \
+    catkin clean -y && \
+    mkdir -p $HOME/3d_object_detection/openpcd_ros/src/deploy/include && \
+    apt update && \
+    apt-get install ros-melodic-ros-numpy && \
+    pip3 install rospkg && \
+    cd $HOME/3d_object_detection/OpenPCDet && \
+    
