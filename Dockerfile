@@ -100,5 +100,13 @@ RUN cd $HOME/3d_object_detection/openpcd_ros && \
     apt update && \
     apt-get install ros-melodic-ros-numpy && \
     pip3 install rospkg && \
+    cd $HOME/3d_object_detection/OpenPCDet/spconv && \
+    git checkout v1.2.1 && \
+    git submodule update --init && \
+    apt-get install libboost-all-dev && \
+    python setup.py bdist_wheel && \
+    cd ./dist && pip3 install spconv-1.2.1-cp36-cp36m-linux_x86_64.whl && \
     cd $HOME/3d_object_detection/OpenPCDet && \
+    python3 setup.py develop
+
     
