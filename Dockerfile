@@ -101,7 +101,7 @@ RUN cd $HOME/3d_object_detection/openpcd_ros && \
     mkdir -p $HOME/3d_object_detection/openpcd_ros/src/deploy/include && \
     apt update && \
     apt-get install ros-melodic-ros-numpy -y && \
-    pip3 install rospkg -H && \
+    pip3 install rospkg && \
     cd $HOME/3d_object_detection/OpenPCDet/spconv && \
     git checkout v1.2.1 && \
     git submodule update --init && \
