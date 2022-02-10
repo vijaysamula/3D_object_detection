@@ -96,6 +96,11 @@ RUN echo 'source /opt/ros/melodic/setup.bash' >> $HOME/.bashrc && \
 
 ADD . $HOME/3d_object_detection/
 
+RUN wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc | apt-key add - && \
+    apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main' && \
+    apt update -y && \
+    apt install cmake --upgrade -y
+
 RUN cd $HOME/3d_object_detection/openpcd_ros && \
     catkin clean -y && \
     mkdir -p $HOME/3d_object_detection/openpcd_ros/src/deploy/include && \
