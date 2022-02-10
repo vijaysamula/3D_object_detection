@@ -62,7 +62,7 @@ WORKDIR $HOME/3d_object_detection/
 RUN chown -R wms:wms $HOME/3d_object_detection/
 RUN chmod 755 $HOME/3d_object_detection/
 
-ADD . $HOME/3d_object_detection/
+
 
 
 # install ros
@@ -94,17 +94,19 @@ RUN echo 'source /opt/ros/melodic/setup.bash' >> $HOME/.bashrc && \
   echo 'export PYTHONPATH=/usr/local/lib/python3.5/dist-packages/cv2/:$PYTHONPATH' >> $HOME/.bashrc && \
   echo 'export NO_AT_BRIDGE=1' >> $HOME/.bashrc
 
+ADD . $HOME/3d_object_detection/
+
 RUN cd $HOME/3d_object_detection/openpcd_ros && \
     catkin clean -y && \
     mkdir -p $HOME/3d_object_detection/openpcd_ros/src/deploy/include && \
     apt update && \
-    apt-get install ros-melodic-ros-numpy && \
-    pip3 install rospkg && \
+    apt-get install ros-melodic-ros-numpy -y && \
+    pip3 install rospkg -H && \
     cd $HOME/3d_object_detection/OpenPCDet/spconv && \
     git checkout v1.2.1 && \
     git submodule update --init && \
-    apt-get install libboost-all-dev && \
-    python setup.py bdist_wheel && \
+    apt-get install libboost-all-dev -y && \
+    python3 setup.py bdist_wheel && \
     cd ./dist && pip3 install spconv-1.2.1-cp36-cp36m-linux_x86_64.whl && \
     cd $HOME/3d_object_detection/OpenPCDet && \
     python3 setup.py develop
