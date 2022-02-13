@@ -4,8 +4,8 @@
 
 
 
-  <arg name="model_path" value="/mnt/VIJAY/thesis/Model_Weights/Monitoring_System/openpcdet/pv_rcnn.pth"/>
-  <arg name="cfg_path" value="/3D-object-detection/OpenPCDet/tools/cfgs/kitti_models/pv_rcnn.yaml"/>
+  <arg name="model_path" value="/home/vijay/thesis/repos/pv_rcnn_8369.pth"/>
+  <arg name="cfg_path" value="/home/wms/3d_object_detection/OpenPCDet/tools/cfgs/kitti_models/pv_rcnn.yaml"/>
   <arg name="input_pointcloud_topic" value="/os1_cloud_node/points_sync"/>
   <arg name="translate_x" value= "25"/>
   <arg name="threshold_score" value= "0.25"/>

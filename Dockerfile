@@ -111,9 +111,10 @@ RUN cd $HOME/3d_object_detection/openpcd_ros && \
     git checkout v1.2.1 && \
     git submodule update --init && \
     apt-get install libboost-all-dev -y && \
-    python3 setup.py bdist_wheel && \
-    cd ./dist && pip3 install spconv-1.2.1-cp36-cp36m-linux_x86_64.whl && \
+    SPCONV_FORCE_BUILD_CUDA=1 python3 setup.py bdist_wheel && \
+    pip3 install dist/* pyquaternion && \
     cd $HOME/3d_object_detection/OpenPCDet && \
-    python3 setup.py develop
+    pip3 install -r requirements.txt && \
+    python3 setup.py develop 
 
     
