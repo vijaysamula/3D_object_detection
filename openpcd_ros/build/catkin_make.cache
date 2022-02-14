@@ -1,2 +1,0 @@
-deploy
--DCATKIN_DEVEL_PREFIX=/3D-object-detection/openpcd_ros/devel -DCMAKE_INSTALL_PREFIX=/3D-object-detection/openpcd_ros/install -G Unix Makefiles

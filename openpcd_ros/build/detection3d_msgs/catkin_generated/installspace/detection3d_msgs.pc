@@ -1,8 +1,0 @@
-prefix=/3D-object-detection/openpcd_ros/install
-
-Name: detection3d_msgs
-Description: Description of detection3d_msgs
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs std_msgs message_runtime

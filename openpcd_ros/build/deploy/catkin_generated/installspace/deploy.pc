@@ -1,8 +1,0 @@
-prefix=/3D-object-detection/openpcd_ros/install
-
-Name: deploy
-Description: Description of deploy
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -ldeploy
-Requires: pcl_conversions pcl_ros cv_bridge image_transport roscpp rospy sensor_msgs std_msgs
