@@ -1,6 +1,6 @@
 # 3D-Object-Detection
 This repository represents the real-time implementation of 3D Object Detection by use of [OpenPCDet](https://github.com/open-mmlab/OpenPCDet). The execution is carried out entirely in [docker](https://www.docker.com/).
-
+Some parts of the code are inspired from [here](https://github.com/Cram3r95/OpenPCDet-ROS).
 ## Docker 
 ```
 git pull https://github.com/vijaysamula/3D_object_detection.git
